@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 
 class Day extends Component {
-  handleHourBooking = event => {
-    console.log("ya clicked");
-  };
-
-  render() {
-    const hours = [
+  state = {
+    hours: [
       { time: "09:00", twelveHourTime: "9:00am", active: 0 },
       { time: "10:00", active: 0 },
       { time: "11:00", active: 0 },
@@ -16,23 +12,29 @@ class Day extends Component {
       { time: "15:00", active: 0 },
       { time: "16:00", active: 0 },
       { time: "17:00", active: 0 }
-    ];
+    ],
+    showModal: false
+  };
 
-    const hour = hours[0];
-    const hoursList = hours.map(hour => (
-      <div
-        className="dayHourBlock"
-        key={hour.time}
-        onClick={this.handleHourBooking}
-      >
-        <p> {hour.time} </p>
-      </div>
-    ));
-
+  render() {
     return (
       <div className="dayContainer">
         <h3> {this.props.name} </h3>
-        <div className="dayHoursContainer"> {hoursList} </div>
+        {/* <ApptContext.Consumer>
+          // can only return one elment tho! so wrap in 
+          <React.Fragment>
+            {(context) => (
+            {context.state.whatever}
+          )}
+          // for Modal onClick={context.addNewBook}
+          </React.Fragment>        
+        </ApptContext.Consumer> */}
+        <div className="dayHoursContainer">
+          {/* so we've got an hour with an onClick that flips showModal state to true 
+        {this.state.showModal && React.createPortal(
+          <Modal data={whatever existing IF an edit}> </Modal>, document.getElementById('modal-portal)
+        )}*/}
+        </div>
       </div>
     );
   }

@@ -37,7 +37,7 @@
   flex-direction: column;
   align-content: space-between;
 }
-.dayHourBlock {
+.bookingTimeBlock {
   border: 1px solid black;
   margin: 5px;
   font-size: 0.85em;
