@@ -5,14 +5,33 @@ import React, { Component } from "react";
 //validation?
 
 class Modal extends Component {
+  /*  handleApptSubmit = () => {
+    fetch("localhost:5000/book", { method: "GET", 
+    body: '' })
+      .then(response => response.json())
+  }
+
+  handleApptCancel = () => {
+    fetch("localhost:5000/cancel/this.props.match.params.id", { method: "GET" })
+      .then(response => response.json())
+      .then(json => {
+        this.setState({
+          test: json.express
+        });
+      });
+  }
+*/
+
   render() {
     return (
       <div id="modalPortal">
-        {/* OnClick that dismisses modal - may have to put on other comp? */}
-        {/* onClick={this.handleCloseModal()}> */}
         <div className="modalForm">
-          <p id="modalExit">X</p>
-          <h3>Appointment for {/* whatever day & time */} </h3>
+          <p id="modalExit" onClick={() => this.setState({ showModal: false })}>
+            X
+          </p>
+          <h3>
+            Appointment for {this.props.day} {this.props.time}
+          </h3>
           <div className="modalFormField">
             <label htmlFor="" className="modalFormBlock">
               Name
@@ -22,10 +41,18 @@ class Modal extends Component {
               Phone
               <input className="modalInput" type="text" />
             </label>
-            <button id="modalSubmit" className="modalButton">
+            <button
+              id="modalSubmit"
+              className="modalButton"
+              onClick="handleApptSubmit"
+            >
               Submit
             </button>
-            <button id="modalCancel" className="modalButton">
+            <button
+              id="modalCancel"
+              className="modalButton"
+              onClick="handleApptCancel"
+            >
               Cancel Appointment?
             </button>
           </div>

@@ -46,6 +46,15 @@
   font-size: 0.85em;
 }
 
+.bokedHourBlock {
+  border: 1px solid black;
+  margin: 6px;
+  padding: 6px;
+  font-size: 0.85em;
+  background: maroon;
+  color: white;
+}
+
 #modalPortal {
   z-index: 4;
   background: rgba(0, 0, 66, 20%);
@@ -70,6 +79,7 @@
   flex-direction: column;
   text-align: center;
   justify-content: space-around;
+  z-index: 4;
 }
 
 .modalFormField {

@@ -6,7 +6,7 @@ var ApptSchema = new mongoose.Schema({
   day: String,
   time: String,
   name: String,
-  email: String
+  phone: String
 });
 
 const Appt = mongoose.model("Appt", ApptSchema);

@@ -1,13 +1,21 @@
 import React, { Component } from "react";
 import "./App.css";
 import DaysDash from "./DaysDash";
-//import Modal from "./Modal";
+import Modal from "./Modal";
 
 export const ApptContext = React.createContext();
 
 class ApptProvider extends Component {
   state = {
-    appointments: []
+    appointments: [
+      {
+        id: 1,
+        day: "Tuesday",
+        time: "10:00am",
+        name: "Sally Sue",
+        phone: "8675309"
+      }
+    ]
   };
 
   //fetch appointments
@@ -16,8 +24,7 @@ class ApptProvider extends Component {
     return (
       <ApptContext.Provider
         value={{
-          //state: this.state,
-          //forModal
+          state: this.state,
           addNewBook: () =>
             this.setState({
               appointments: []
@@ -78,7 +85,7 @@ class App extends Component {
           </div>
         </div>
 
-        {/* <Modal /> */}
+        <div id="modalRoot" />
       </ApptProvider>
     );
   }

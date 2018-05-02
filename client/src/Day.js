@@ -1,15 +1,38 @@
-import React, { Component } from "react";
+import React, { Component, createPortal } from "react";
+import ReactDOM from "react-dom";
 import { ApptContext } from "./App";
+import Modal from "./Modal";
 
 class Hour extends Component {
-  handleModal = event => {
-    //this.setState({showModal: true});
-    console.log("modal activated!");
+  state = {
+    showModal: false,
+    appointments: [this.props.appointments]
   };
+
+  openModal = () => {
+    this.setState({ showModal: true });
+    console.log(this.state);
+  };
+
+  closeModal = () => {
+    this.setState({ showModal: false });
+  };
+
   render() {
     return (
-      <div className="hourBlock" onClick={this.handleModal}>
-        {this.props.name}
+      <div className="hourBlock" onClick={this.openModal}>
+        {this.props.time}
+
+        {/* so we've got an hour with an onClick that flips showModal state to true */}
+        {this.state.showModal &&
+          ReactDOM.createPortal(
+            <Modal
+              day={this.props.dayName}
+              time={this.props.time}
+              //data={whatever existing IF an edit}
+            />,
+            document.getElementById("modalRoot")
+          )}
       </div>
     );
   }
@@ -27,8 +50,7 @@ class Day extends Component {
       { time: "3:00pm", active: 0 },
       { time: "4:00pm", active: 0 },
       { time: "5:00pm", active: 0 }
-    ],
-    showModal: false
+    ]
   };
 
   render() {
@@ -40,25 +62,46 @@ class Day extends Component {
           // for Modal onClick={context.addNewBook} */}
           {context => (
             <React.Fragment>
-              <div className="dayHoursContainer">
-                {this.state.hours.map((hour, active) => {
-                  return (
-                    <Hour
-                      key={`${this.props.name}, ${hour.time}`}
-                      name={hour.time}
-                    />
-                  );
+              <div
+                className="dayHoursContainer"
+                appointments={context.state.appointments.map(appointment => {
+                  return {
+                    day: appointment.day,
+                    time: appointment.time
+                  };
                 })}
+              >
+                {this.state.hours.map(
+                  hour => {
+                    /* if (
+                    this.props.appointments[0].day == this.props.name &&
+                    this.props.appointments[0].time == hour.time
+                  ) {*/
+
+                    return (
+                      <Hour
+                        className="bookedHourBlock"
+                        key={`${this.props.name}, ${hour.time}`}
+                        time={hour.time}
+                        dayName={this.props.name}
+                      />
+                    );
+                  } /* else {
+                    return (
+                      <Hour
+                        className="bookedHourBlock"
+                        key={`${this.props.name}, ${hour.time}`}
+                        time={hour.time}
+                        dayName={this.props.name}
+                      />
+                    );
+                  } 
+                }*/
+                )}
               </div>
             </React.Fragment>
           )}
         </ApptContext.Consumer>
-
-        {/* so we've got an hour with an onClick that flips showModal state to true 
-         
-        {this.state.showModal && React.createPortal(
-          <Modal day={} time={} data={whatever existing IF an edit}> </Modal>, document.getElementById('modalPortal')
-        )}*/}
       </div>
     );
   }

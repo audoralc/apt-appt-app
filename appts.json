@@ -3,8 +3,9 @@
     {
       "id": 1,
       "day": "Monday",
+      "time": "3:00pm",
       "name": "Sally Sue",
-      "email": "sally@sue.awesome"
+      "phone": "8675309"
     }
   ]
 }

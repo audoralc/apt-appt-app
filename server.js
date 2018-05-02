@@ -38,7 +38,7 @@ app.post("/book", (req, res) => {
       day: req.body.day,
       time: req.body.time,
       name: req.body.name,
-      email: req.body.email
+      phone: req.body.phone
     },
   */
   res.send("You booked an appt.");
