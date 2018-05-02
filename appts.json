@@ -1,0 +1,10 @@
+{
+  "appointments": [
+    {
+      "id": 1,
+      "day": "Monday",
+      "name": "Sally Sue",
+      "email": "sally@sue.awesome"
+    }
+  ]
+}

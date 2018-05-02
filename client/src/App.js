@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import DaysDash from "./DaysDash";
-//import Modal from "./Modal";
+import Modal from "./Modal";
 
 const ApptContext = React.createContext();
 
@@ -15,7 +15,7 @@ class ApptProvider extends Component {
 
   render() {
     return (
-      <Appt.Context.Provider
+      <ApptContext.Provider
         value={{
           state: this.state,
           //forModal
@@ -26,7 +26,7 @@ class ApptProvider extends Component {
         }}
       >
         {this.props.children}
-      </Appt.Context.Provider>
+      </ApptContext.Provider>
     );
   }
 }
@@ -68,15 +68,17 @@ class App extends Component {
   render() {
     return (
       <ApptProvider>
-        <div className="App">
-          <header className="headerContainer">
-            <h1> Apt ⏲ </h1>
-            <h2> an appointment app</h2>
-          </header>
+        <body>
+          <div className="App">
+            <div className="headerContainer">
+              <h1> Apt ⏲ </h1>
+              <h2> an appointment app</h2>
+            </div>
+            <DaysDash />
+          </div>
+        </body>
 
-          <DaysDash />
-          {/* <Modal />*/}
-        </div>
+        <Modal />
       </ApptProvider>
     );
   }

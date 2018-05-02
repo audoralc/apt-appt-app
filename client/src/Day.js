@@ -32,7 +32,7 @@ class Day extends Component {
         <div className="dayHoursContainer">
           {/* so we've got an hour with an onClick that flips showModal state to true 
         {this.state.showModal && React.createPortal(
-          <Modal data={whatever existing IF an edit}> </Modal>, document.getElementById('modal-portal)
+          <Modal day={} time={} data={whatever existing IF an edit}> </Modal>, document.getElementById('modalPortal')
         )}*/}
         </div>
       </div>
