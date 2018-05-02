@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import DaysDash from "./DaysDash";
-import Modal from "./Modal";
+//import Modal from "./Modal";
 
-const ApptContext = React.createContext();
+export const ApptContext = React.createContext();
 
 class ApptProvider extends Component {
   state = {
@@ -17,7 +16,7 @@ class ApptProvider extends Component {
     return (
       <ApptContext.Provider
         value={{
-          state: this.state,
+          //state: this.state,
           //forModal
           addNewBook: () =>
             this.setState({
@@ -39,11 +38,11 @@ class App extends Component {
 
   componentWillMount() {
     //this.getBookedAppts();
-    this.getTesterApi();
+    //this.getTesterApi();
     console.log(this.state);
   }
 
-  getBookedAppts = () => {
+  /* getBookedAppts = () => {
     fetch("localhost:5000/api/appts", { method: "GET" })
       .then(response => response.json())
       .then(json => {
@@ -54,7 +53,7 @@ class App extends Component {
   };
 
   getTesterApi = () => {
-    fetch("localhost:5000/api/hello", { method: "GET" })
+    fetch("localhost:5000/hello", { method: "GET" })
       .then(response => response.json())
       .then(json => {
         this.setState({
@@ -62,23 +61,24 @@ class App extends Component {
         });
       });
   };
+*/
 
   //when context is passed down gonna have to use React.forwardRef
 
   render() {
     return (
       <ApptProvider>
-        <body>
-          <div className="App">
+        <div className="App">
+          <div>
             <div className="headerContainer">
               <h1> Apt ⏲ </h1>
               <h2> an appointment app</h2>
             </div>
             <DaysDash />
           </div>
-        </body>
+        </div>
 
-        <Modal />
+        {/* <Modal /> */}
       </ApptProvider>
     );
   }

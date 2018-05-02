@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 
 var server = app.listen(port, () => console.log(`Listening on port ${port}`));
 
-//mock data endpoints
+/*mock data endpoints
 router.post("/book/", created);
 router.get("/appts/", file(appts.json));
 router.put("/update/:id/", file(appts.json));
@@ -23,7 +23,7 @@ function file(filename) {
 function created(req, res) {
   res.writeHead(201, "Created");
   res.end();
-}
+} */
 
 //tester API
 app.get("/hello", (req, res) => {
