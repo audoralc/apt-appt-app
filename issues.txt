@@ -1,0 +1,7 @@
+outstanding issues
+
+- modal event bubbling - possible fix handleModal conditional so 2nd click does not flip state back - direct true & false values result in modal not working 
+
+- appts when passed down to Hour via props turns up empty 
+
+- correct syntax for already booked hour rendering, array needs to be flattened one level or some kind of array[i] method, or maybe another map but idk 
