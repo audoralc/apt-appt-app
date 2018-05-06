@@ -26,9 +26,9 @@ class Modal extends Component {
     return (
       <div id="modalPortal">
         <div className="modalForm">
-          <p id="modalExit" onClick={() => this.setState({ showModal: false })}>
+          <button id="modalExit" onClick={this.props.closeModal}>
             X
-          </p>
+          </button>
           <h3>
             Appointment for {this.props.day} {this.props.time}
           </h3>
@@ -44,14 +44,14 @@ class Modal extends Component {
             <button
               id="modalSubmit"
               className="modalButton"
-              onClick="handleApptSubmit"
+              onClick={this.handleApptSubmit}
             >
               Submit
             </button>
             <button
               id="modalCancel"
               className="modalButton"
-              onClick="handleApptCancel"
+              onClick={this.handleApptCancel}
             >
               Cancel Appointment?
             </button>

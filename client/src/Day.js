@@ -10,12 +10,18 @@ class Hour extends Component {
   };
 
   openModal = () => {
-    this.setState({ showModal: true });
-    console.log(this.state);
+    if (this.state.showModal === false) {
+      this.setState({
+        showModal: true
+      });
+    } else {
+      console.log(this.state);
+    }
   };
 
   closeModal = () => {
     this.setState({ showModal: false });
+    console.log("close modal is firing");
   };
 
   render() {
@@ -29,6 +35,7 @@ class Hour extends Component {
             <Modal
               day={this.props.dayName}
               time={this.props.time}
+              closeModal={this.closeModal}
               //data={whatever existing IF an edit}
             />,
             document.getElementById("modalRoot")

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import DaysDash from "./DaysDash";
-import Modal from "./Modal";
-
 export const ApptContext = React.createContext();
 
 class ApptProvider extends Component {
