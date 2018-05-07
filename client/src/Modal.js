@@ -5,11 +5,17 @@ import React, { Component } from "react";
 //validation?
 
 class Modal extends Component {
+  //conditional render
+  //response good = fire closeModal & re-render Hours
+  // bad response = on pg alert
+
   /*  handleApptSubmit = () => {
     fetch("localhost:5000/book", { method: "GET", 
     body: '' })
       .then(response => response.json())
   }
+  
+  //same good= closeModal bad = alert
 
   handleApptCancel = () => {
     fetch("localhost:5000/cancel/this.props.match.params.id", { method: "GET" })
